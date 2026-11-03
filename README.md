@@ -11,10 +11,13 @@
 Prosta sieć szkoły podstawowej podzielona na 5 podsieci metodą VLMS. Moimi założeniami było zbudowanie 4 podsieci na 4 sale po 21 komputerów (1 komputer nauczyciela i 20 uczniów) z możliwością rozbudowy do maksymalnie 29 urządzeń na salę, ostatnia piąta podsieć została zarezerwowana na serwer DHCP i DNS.
 
 # Topologia:
+![Network topology](screenshots/topology.png)
 
 # Tabela adresacji:
+![IP address](screenshots/pl-address.png)
 
 # Tabela VLAN:
+![VLAN](screenshots/pl-vlan.png)
 
 # Użyte urządzenia:
 Użyłem 8x PC-PT (po 2 na salę), 5x switchy 2960-24TT, 1x Server-PT, 1x Router 2911
