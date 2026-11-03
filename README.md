@@ -2,7 +2,7 @@
 # simple-school-network
 
 ## About the project
-A simple elementary school network divided into 5 subnets using VLSM (Variable Length Subnet Mask). The design assumes 4 classrooms with 21 computers each (1 teacher + 20 students), with room to expand up to 29 devices per classroom. The fifth subnet is reserved for the DHCP and DNS server.
+A simple elementary school network divided into 5 subnets using VLSM (Variable Length Subnet Mask). The design assumes 4 classrooms with 21 computers each (1 teacher + 20 students), with room to expand up to 29 devices per classroom. The fifth subnet is reserved for the DHCP and DNS server. Cisco Packet Tracer Version: 9.0.1.0858
 
 ## Topology
 ![Network topology](screenshots/topology.png)
@@ -57,7 +57,7 @@ A ping using a domain name instead of an IP address confirms that the DNS server
 # prosta-sieć-szkolna
 
 ## O projekcie:
-Prosta sieć szkoły podstawowej podzielona na 5 podsieci metodą VLMS. Moimi założeniami było zbudowanie 4 podsieci na 4 sale po 21 komputerów (1 komputer nauczyciela i 20 uczniów) z możliwością rozbudowy do maksymalnie 29 urządzeń na salę, ostatnia piąta podsieć została zarezerwowana na serwer DHCP i DNS.
+Prosta sieć szkoły podstawowej podzielona na 5 podsieci metodą VLMS. Moimi założeniami było zbudowanie 4 podsieci na 4 sale po 21 komputerów (1 komputer nauczyciela i 20 uczniów) z możliwością rozbudowy do maksymalnie 29 urządzeń na salę, ostatnia piąta podsieć została zarezerwowana na serwer DHCP i DNS. Cisco Packet Tracer Version: 9.0.1.0858
 
 ## Topologia:
 ![Network topology](screenshots/topology.png)
