@@ -1,0 +1,27 @@
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SW-Classroom1
+SW-Classroom1(config)#vlan 10
+SW-Classroom1(config-vlan)#name CLASSROOM_1
+SW-Classroom1(config-vlan)#exit
+SW-Classroom1(config)#interface range fa0/1-21
+SW-Classroom1(config-if-range)#switchport mode access
+SW-Classroom1(config-if-range)#switchport access vlan 10
+SW-Classroom1(config-if-range)#exit
+SW-Classroom1(config)#interface g0/1
+SW-Classroom1(config-if)#switchport mode trunk
+
+SW-Classroom1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+
+SW-Classroom1(config-if)#end
+SW-Classroom1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SW-Classroom1#wr
+Building configuration...
+[OK]
+SW-Classroom1#

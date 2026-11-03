@@ -1,0 +1,71 @@
+Switch>enable
+Switch#hostname SW-Core
+                ^
+% Invalid input detected at '^' marker.
+	
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SW-Core
+SW-Core(config)#%SPANTREE-2-RECV_PVID_ERR: Received 802.1Q BPDU on non trunk FastEthernet0/1 VLAN1.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/1 on VLAN0001. Inconsistent port type.
+
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+%SPANTREE-2-RECV_PVID_ERR: Received 802.1Q BPDU on non trunk FastEthernet0/2 VLAN1.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/2 on VLAN0001. Inconsistent port type.
+
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/2, changed state to up
+%SPANTREE-2-RECV_PVID_ERR: Received 802.1Q BPDU on non trunk FastEthernet0/3 VLAN1.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/3 on VLAN0001. Inconsistent port type.
+
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+%SPANTREE-2-RECV_PVID_ERR: Received 802.1Q BPDU on non trunk FastEthernet0/4 VLAN1.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/4 on VLAN0001. Inconsistent port type.
+
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+
+SW-Core(config)#vlan 10
+SW-Core(config-vlan)#name CLASSROOM_1
+SW-Core(config-vlan)#vlan 20
+SW-Core(config-vlan)#name CLASSROOM_2
+SW-Core(config-vlan)#vlan 30
+SW-Core(config-vlan)#name CLASSROOM_3
+SW-Core(config-vlan)#vlan 40
+SW-Core(config-vlan)#name CLASSROOM_4
+SW-Core(config-vlan)#vlan 50
+SW-Core(config-vlan)#name SERVERS
+SW-Core(config-vlan)#exit
+SW-Core(config)#interface range fa0/1-4 , g0/1
+SW-Core(config-if-range)#switchport mode trunk
+SW-Core(config-if-range)#exit
+SW-Core(config)#interface fa0/5
+SW-Core(config-if)#switchport mode access
+SW-Core(config-if)#switchport access vlan 50
+SW-Core(config-if)#end
+SW-Core#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SW-Core#wr
+Building configuration...
+[OK]
+SW-Core#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+
+SW-Core#
