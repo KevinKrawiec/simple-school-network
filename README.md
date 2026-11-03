@@ -1,7 +1,56 @@
 # EN
 # simple-school-network
 
+## About the project
+A simple elementary school network divided into 5 subnets using VLSM (Variable Length Subnet Mask). The design assumes 4 classrooms with 21 computers each (1 teacher + 20 students), with room to expand up to 29 devices per classroom. The fifth subnet is reserved for the DHCP and DNS server.
 
+## Topology
+![Network topology](screenshots/topology.png)
+
+## Addressing table
+![IP address](screenshots/en-address.png)
+
+## VLAN table
+![VLAN](screenshots/en-vlan.png)
+
+## Devices used
+- 1x Router 2911
+- 5x Switch 2960-24TT (4 classroom switches + 1 core switch)
+- 1x Server-PT (DHCP + DNS)
+- 8x PC-PT (2 per classroom, for testing)
+
+
+## Design decisions
+- 192.168.10.0 instead of 192.168.0.0: avoids conflicts with the default addresses used by most home routers (e.g. when connecting through a VPN).
+- /27 for classrooms: the smallest subnet that fits 21 computers plus the gateway. It provides 30 host addresses, leaving room to grow to 29 devices without wasting address space.
+- /28 for servers: 14 host addresses, leaving room for additional servers in the future while keeping the subnet small.
+
+## Tests
+
+### 1. DHCP address assignment
+The computer automatically received an IP address, subnet mask, default gateway and DNS server from the pool assigned to its classroom.
+
+![ipconfig /all](tests/ipconfig-pc1.png)
+
+### 2. Connectivity to the default gateway
+A ping from the PC to its gateway (router subinterface) confirms the PC ↔ switch ↔ router connection.
+
+![Ping to gateway](tests/ping-gateway.png)
+
+### 3. Inter-VLAN communication
+A ping from a PC in Classroom 1 to a PC in Classroom 4 confirms that inter-VLAN routing (router-on-a-stick) works.
+
+![Ping between classrooms](tests/ping-intervlan.png)
+
+### 4. Server access
+A ping to the server (192.168.10.130) in VLAN 50 confirms that the server subnet is reachable from the classroom subnets.
+
+![Ping to server](tests/ping-server.png)
+
+### 5. DNS resolution
+A ping using a domain name instead of an IP address confirms that the DNS server correctly resolves names to addresses.
+
+![DNS test](tests/dns-test.png)
 
 
 # PL
