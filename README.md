@@ -31,24 +31,24 @@ Użyte maski: /27 dla sal: to najmniejsza podsieć, która mieści 21 komputeró
 ### 1. Przydzielanie adresów przez DHCP
 Komputer automatycznie otrzymał adres IP, maskę, bramę domyślną i adres serwera DNS z puli przypisanej do swojej sali.
 
-![ipconfig /all](screenshots/ipconfig-pc1.png)
+![ipconfig /all](tests/ipconfig-pc1.png)
 
 ### 2. Połączenie z bramą domyślną
 Ping z komputera do bramy (subinterfejs routera) potwierdza połączenie PC ↔ switch ↔ router.
 
-![Ping do bramy](screenshots/ping-gateway.png)
+![Ping do bramy](tests/ping-gateway.png)
 
 ### 3. Komunikacja między VLAN-ami
 Ping z PC w Sali 1 do PC w Sali 4 potwierdza, że routing między VLAN-ami (router-on-a-stick) działa.
 
-![Ping między salami](screenshots/ping-intervlan.png)
+![Ping między salami](tests/ping-intervlan.png)
 
 ### 4. Dostęp do serwera
 Ping do serwera (192.168.10.130) w VLAN 50 potwierdza dostęp do sieci serwerowej z sieci sal.
 
-![Ping do serwera](screenshots/ping-server.png)
+![Ping do serwera](tests/ping-server.png)
 
 ### 5. Działanie DNS
 Ping po nazwie domenowej zamiast adresu IP potwierdza, że serwer DNS poprawnie tłumaczy nazwę na adres.
 
-![Test DNS](screenshots/dns-test.png)
+![Test DNS](tests/dns-test.png)
